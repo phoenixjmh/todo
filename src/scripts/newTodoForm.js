@@ -15,13 +15,13 @@ const createNewTodoForm=(project,displayPanel)=> {
     titleInput.setAttribute("type", "text");
     titleInput.id = "form-Todo-title";
   
-    let descriptionLabel = document.createElement("label");
-    descriptionLabel.setAttribute("for", "form-todo-description");
-    descriptionLabel.textContent = "Description";
+    // let descriptionLabel = document.createElement("label");
+    // descriptionLabel.setAttribute("for", "form-todo-description");
+    // descriptionLabel.textContent = "Description";
   
-    let descriptionInput = document.createElement("input");
-    descriptionInput.setAttribute("type", "text");
-    descriptionInput.id = "form-todo-description";
+    // let descriptionInput = document.createElement("input");
+    // descriptionInput.setAttribute("type", "text");
+    // descriptionInput.id = "form-todo-description";
   
     let dueDateLabel = document.createElement("label");
     dueDateLabel.setAttribute("for", "form-todo-dueDate");
@@ -45,8 +45,8 @@ const createNewTodoForm=(project,displayPanel)=> {
   
     newTodoForm.appendChild(titleLabel);
     newTodoForm.appendChild(titleInput);
-    newTodoForm.appendChild(descriptionLabel);
-    newTodoForm.appendChild(descriptionInput);
+    //newTodoForm.appendChild(descriptionLabel);
+    // newTodoForm.appendChild(descriptionInput);
     newTodoForm.appendChild(dueDateLabel);
     newTodoForm.appendChild(dueDateInput);
   
@@ -59,7 +59,7 @@ const createNewTodoForm=(project,displayPanel)=> {
   
     createButton.addEventListener("click", () => {
   
-      let tempTodoName = new Todo(titleInput.value,descriptionInput.value,dueDateInput.value,priorityInput.value,project.getAll().length);
+      let tempTodoName = new Todo(titleInput.value,' ',dueDateInput.value,priorityInput.value,project.getAll().length);
       project.addTodo(tempTodoName);
       newTodoFormDiv.remove();
       drawExistingTodos(project,displayPanel);

@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 body{
     display:flex;
     height:100vh;
     width:100%;
+    font-family:'Roboto',sans-serif;
+    font-weight:700;
+    font-size:16pt;
 }
 
 .side-panel{
@@ -25,13 +30,30 @@ body{
     align-items: center;
 }
 .project{
-    
+    justify-content: center;
+    align-items: center;
+    display:flex;
+   button{
+    height:1rem;
+   }
 }
 .todo{
     width:80%;
     display:flex;
     border:2px solid black;
     justify-content: space-between;
+}
+.title{
+    position:relative;
+    z-index: 0;
+    font-size:1.5rem;
+    font-weight:700;
+}
+.todo-new-title{
+    position:absolute;
+    left:0;
+    width:100%;
+    font-size:1.5rem;
 }
 .create-project-form{
     border:2px solid black;

@@ -26,6 +26,4 @@ let td4 = new Todo("Screws", 0, 0, 0, 1);
 proj2.addTodo(td3);
 proj2.addTodo(td4);
 pm.addProj(proj2);
-console.log(pm);
 loadProjects(pm,projectManagerDiv,displayPanel);
-console.log(displayPanel);

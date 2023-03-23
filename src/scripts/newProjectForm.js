@@ -1,4 +1,4 @@
-import drawExistingProject from "./drawNewProject";
+import loadProjects from "./loadProjects";
 import Project from "./Project";
 const createNewProjectForm=(projManDiv,pm,displayPanel)=>{
     let newProjectFormDiv = document.createElement("div");
@@ -29,7 +29,8 @@ const createNewProjectForm=(projManDiv,pm,displayPanel)=>{
       newProjectFormDiv.remove();
       let tempProjName = new Project(nameInput.value, pm.getAll().length);
       pm.addProj(tempProjName);
-      drawExistingProject(tempProjName, projManDiv,displayPanel);
+      // drawExistingProject(tempProjName, projManDiv,displayPanel);
+      loadProjects(pm,projManDiv,displayPanel);
     });
   }
   export default createNewProjectForm;

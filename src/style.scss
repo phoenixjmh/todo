@@ -3,10 +3,14 @@ body{
     height:100vh;
     width:100%;
 }
-.project-manager{
+
+.side-panel{
     background-color: rgb(55, 55, 239);
     flex: 1 1 auto;
     height:100%;
+}
+.project-manager{
+    border:2px solid red;
 }
 .main-panel{
     flex :3 3 auto;

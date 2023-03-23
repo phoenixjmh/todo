@@ -4,6 +4,7 @@ import Project from "./scripts/Project";
 import {drawProjectManager,drawProjectDisplayPanel} from "./scripts/loadMain";
 import drawProjectsOnLoad from "./scripts/loadProjects";
 import "./style.scss";
+import loadProjects from "./scripts/loadProjects";
 let pm = new ProjectManager();
 
 const displayPanel = drawProjectDisplayPanel();
@@ -26,5 +27,5 @@ proj2.addTodo(td3);
 proj2.addTodo(td4);
 pm.addProj(proj2);
 console.log(pm);
-drawProjectsOnLoad(pm,projectManagerDiv,displayPanel);
+loadProjects(pm,projectManagerDiv,displayPanel);
 console.log(displayPanel);

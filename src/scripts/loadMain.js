@@ -1,16 +1,20 @@
 import createNewProjectForm from "./newProjectForm";
 
 const drawProjectManager=(pm,displayPanel)=> {
+    let sidePanel=document.createElement('div');
+    sidePanel.classList.add('side-panel');
+
     let projectManagerDiv = document.createElement("div");
     projectManagerDiv.classList.add("project-manager");
     let createFormNewProject = document.createElement("button");
     createFormNewProject.classList.add("new-project-button");
     createFormNewProject.textContent = "Create A New Project";
-    projectManagerDiv.appendChild(createFormNewProject);
     // document.body.appendChild(projectManagerDiv);
     let mainPanel = document.querySelector('.main-panel');
     const parentNode = document.body;
-    parentNode.insertBefore(projectManagerDiv,mainPanel);
+    sidePanel.appendChild(projectManagerDiv);
+    sidePanel.appendChild(createFormNewProject);
+    parentNode.insertBefore(sidePanel,mainPanel);
     createFormNewProject.addEventListener("click", () => {
       createNewProjectForm(projectManagerDiv,pm,displayPanel);                ///DEPEND
       console.log("button");

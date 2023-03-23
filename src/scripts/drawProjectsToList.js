@@ -1,7 +1,7 @@
 import createNewTodoButton from "./newTodoButton";
 import drawExistingTodos from "./drawExistingTodos";
 
-const  drawExistingProjectToList=(project,title, id, projManDiv,displayPanel)=> {
+const  drawProjectsToList=(project,title, id, projManDiv,displayPanel)=> {
     let projectDiv = document.createElement("div");
     projectDiv.classList.add("project");
     projectDiv.id = 'project-'+id;
@@ -15,9 +15,8 @@ const  drawExistingProjectToList=(project,title, id, projManDiv,displayPanel)=> 
     // and repopulated with it's corresponding Todos.
     projectDiv.addEventListener("click", function () {
       displayPanel.innerHTML='';
-      let newFormButton = createNewTodoButton(project,displayPanel);
-  
       drawExistingTodos(project,displayPanel);
+      let newFormButton = createNewTodoButton(project,displayPanel);
   
     });
     projectDiv.appendChild(projectTitleH1);
@@ -25,4 +24,4 @@ const  drawExistingProjectToList=(project,title, id, projManDiv,displayPanel)=> 
     projManDiv.appendChild(projectDiv);
     return projectDiv;
   }
-  export default drawExistingProjectToList;
+  export default drawProjectsToList;

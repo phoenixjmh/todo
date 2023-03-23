@@ -8,7 +8,7 @@ let pm = new ProjectManager();
 
 const displayPanel = drawProjectDisplayPanel();
 const projectManagerDiv = drawProjectManager(pm,displayPanel);
-
+const mainPanel=document.querySelector('.main-panel');
 
 //Development set up stuff 
 

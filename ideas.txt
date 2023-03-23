@@ -1,0 +1,1 @@
+Probably the next part of this is unifying all the different ways that projects and todos can be created. So there will be ONE projectRender, and ONE todoRender.

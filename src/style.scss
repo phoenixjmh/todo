@@ -8,10 +8,13 @@ body{
     flex: 1 1 auto;
     height:100%;
 }
-.project-display-panel{
+.main-panel{
     flex :3 3 auto;
     border:2px solid rebeccapurple;
     height:100%;
+
+}
+.project-display-panel{
     display:flex;
     flex-direction: column;
     justify-content: center;

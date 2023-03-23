@@ -1,4 +1,6 @@
-import drawNewTodo from "./drawNewTodo";
+import drawExistingTodos from "./drawExistingTodos";
+
+
 import Todo from "./Todo";
 const createNewTodoForm=(project,displayPanel)=> {
     let newTodoFormDiv = document.createElement("div");
@@ -60,8 +62,8 @@ const createNewTodoForm=(project,displayPanel)=> {
       let tempTodoName = new Todo(titleInput.value,descriptionInput.value,dueDateInput.value,priorityInput.value,project.getAll().length);
       project.addTodo(tempTodoName);
       newTodoFormDiv.remove();
-      drawNewTodo(tempTodoName, displayPanel,project);
-      console.log(tempTodoName.id);
+      drawExistingTodos(project,displayPanel);
+      
     });
   }
   export default createNewTodoForm;

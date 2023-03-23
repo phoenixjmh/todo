@@ -8,9 +8,9 @@ const drawProjectManager=(pm,displayPanel)=> {
     createFormNewProject.textContent = "Create A New Project";
     projectManagerDiv.appendChild(createFormNewProject);
     // document.body.appendChild(projectManagerDiv);
-    const disPan = document.querySelector('.project-display-panel');
+    let mainPanel = document.querySelector('.main-panel');
     const parentNode = document.body;
-    parentNode.insertBefore(projectManagerDiv,disPan);
+    parentNode.insertBefore(projectManagerDiv,mainPanel);
     createFormNewProject.addEventListener("click", () => {
       createNewProjectForm(projectManagerDiv,pm,displayPanel);                ///DEPEND
       console.log("button");
@@ -20,10 +20,12 @@ const drawProjectManager=(pm,displayPanel)=> {
   }
 
   const drawProjectDisplayPanel=()=> {
+    let mainPanel=document.createElement('div');
+    mainPanel.classList.add('main-panel');
     let displayPanelDiv = document.createElement("div");
     displayPanelDiv.classList.add("project-display-panel");
-    
-    document.body.appendChild(displayPanelDiv);
+    mainPanel.appendChild(displayPanelDiv);
+    document.body.appendChild(mainPanel);
 
     return displayPanelDiv;
   }

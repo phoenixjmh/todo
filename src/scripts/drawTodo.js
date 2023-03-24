@@ -1,6 +1,6 @@
 import removeElement from "./removeElement";
 
-const drawExistingTodo = (todo, displayPanel, project, pm) => {
+const drawTodo = (todo, displayPanel, project, pm) => {
   let todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
   todoDiv.id = "todo-" + todo.id;
@@ -57,4 +57,4 @@ const drawExistingTodo = (todo, displayPanel, project, pm) => {
   });
   return todoDiv;
 };
-export default drawExistingTodo;
+export default drawTodo;

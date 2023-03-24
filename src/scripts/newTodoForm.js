@@ -1,4 +1,4 @@
-import drawExistingTodos from "./drawExistingTodos";
+import drawTodo from "./drawTodo";
 
 import Todo from "./Todo";
 const createNewTodoForm = (pm,project, displayPanel) => {
@@ -43,7 +43,7 @@ const createNewTodoForm = (pm,project, displayPanel) => {
     );
     project.addTodo(tempTodoName);
     newTodoFormDiv.remove();
-    drawExistingTodos(pm,project, displayPanel);
+    drawTodo(pm,project, displayPanel);
     localStorage.setItem("packageManager", JSON.stringify(pm));
 
   });

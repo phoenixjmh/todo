@@ -1,3 +1,4 @@
+import drawExistingTodos from "./drawExistingTodos";
 import removeElement from "./removeElement";
 
 const drawTodo = (todo, displayPanel, project, pm) => {
@@ -5,6 +6,17 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   todoDiv.classList.add("todo");
   todoDiv.id = "todo-" + todo.id;
   todoDiv.setAttribute("draggable", "true");
+  todoDiv.ondragstart=((event)=>{
+    const obj={todoObj:todo,projectObj:project};
+    console.log("Hello from drag");
+    event.dataTransfer.setData('text',JSON.stringify(obj));
+    
+  });
+  
+  todoDiv.ondragend=((event)=>{
+    event.preventDefault();
+    drawExistingTodos(pm,project,displayPanel);
+  });
   let todoCheckbox = document.createElement("input");
 
   todoCheckbox.setAttribute("type", "checkbox");

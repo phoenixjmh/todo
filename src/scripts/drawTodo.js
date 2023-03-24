@@ -8,12 +8,13 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   todoDiv.setAttribute("draggable", "true");
   todoDiv.ondragstart=((event)=>{
     const obj={todoObj:todo,projectObj:project};
-    console.log("Hello from drag");
+    console.log("Hello from drag",obj);
     event.dataTransfer.setData('text',JSON.stringify(obj));
     
   });
   
   todoDiv.ondragend=((event)=>{
+    console.log('Drag ended');
     event.preventDefault();
     drawExistingTodos(pm,project,displayPanel);
   });

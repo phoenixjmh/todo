@@ -17,7 +17,6 @@ const loadProjects = (
       projectManagerDiv,
       displayPanel
     );
-    console.log("Named",project.title);
     project.div = tempDiv;
     localStorage.setItem('packageManager',JSON.stringify(projectManagerObject));
   });

@@ -32,6 +32,8 @@ const drawExistingTodo = (todo, displayPanel, project, pm) => {
     todoDiv.remove();
     console.log(todo.id);
     console.log(pm.getAll());
+    localStorage.setItem("packageManager", JSON.stringify(pm));
+
   });
 
   let newInputText = document.createElement("input");
@@ -45,6 +47,8 @@ const drawExistingTodo = (todo, displayPanel, project, pm) => {
     todo.title = newInputText.value;
     todoTitle.textContent = todo.title;
     newInputText.remove();
+    localStorage.setItem("packageManager", JSON.stringify(pm));
+
   };
   newInputText.addEventListener("keyup", ({ key }) => {
     if (key === "Enter") {

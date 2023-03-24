@@ -5,7 +5,9 @@ const loadProjects = (
   displayPanel
 ) => {
   projectManagerDiv.innerHTML = "";
-  const projArray = projectManagerObject.getAll();
+  console.log("hello from loadProjects",projectManagerObject.projects)
+  const projArray = projectManagerObject.projects;
+  console.log('copied array',projArray);
   projArray.forEach((project) => {
     const tempDiv = drawProjectsToList(
       projectManagerObject,
@@ -15,7 +17,9 @@ const loadProjects = (
       projectManagerDiv,
       displayPanel
     );
+    console.log("Named",project.title);
     project.div = tempDiv;
+    localStorage.setItem('packageManager',projectManagerObject);
   });
 };
 export default loadProjects;

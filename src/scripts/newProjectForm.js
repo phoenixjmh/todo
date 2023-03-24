@@ -23,6 +23,8 @@ const createNewProjectForm = (projManDiv, pm, displayPanel) => {
     let tempProjName = new Project(nameInput.value, pm.getAll().length);
     pm.addProj(tempProjName);
     loadProjects(pm, projManDiv, displayPanel);
+    localStorage.setItem("packageManager", JSON.stringify(pm));
+
   });
 };
 export default createNewProjectForm;

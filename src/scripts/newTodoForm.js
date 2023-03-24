@@ -44,6 +44,8 @@ const createNewTodoForm = (pm,project, displayPanel) => {
     project.addTodo(tempTodoName);
     newTodoFormDiv.remove();
     drawExistingTodos(pm,project, displayPanel);
+    localStorage.setItem("packageManager", JSON.stringify(pm));
+
   });
 };
 export default createNewTodoForm;

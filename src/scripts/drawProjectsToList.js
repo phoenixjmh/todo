@@ -17,10 +17,10 @@ const drawProjectsToList = (
   projectDiv.id = "project-" + id;
   let projectTitleH1 = document.createElement("h1");
   projectTitleH1.classList.add("project-name");
-  projectTitleH1.textContent = title;
+  projectTitleH1.textContent = project.title;
   let newNameInput = document.createElement("input");
   newNameInput.id = "new-name-input";
-  newNameInput.value = title;
+  newNameInput.value = project.title;
 
   editButton.addEventListener("click", () => {
     projectTitleH1.remove();
@@ -32,6 +32,7 @@ const drawProjectsToList = (
     project.title = newNameInput.value;
     newNameInput.remove();
     projectDiv.insertBefore(projectTitleH1, editButton);
+    localStorage.setItem("packageManager", JSON.stringify(pm));
   };
   newNameInput.addEventListener("keyup", ({ key }) => {
     if (key === "Enter") newNameInput.blur();

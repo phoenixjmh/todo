@@ -1,5 +1,5 @@
 import createNewTodoButton from "./newTodoButton";
-import drawTodo from "./drawTodo";
+import drawExistingTodos from "./drawExistingTodos";
 import removeElement from "./removeElement";
 
 const drawProjectsToList = (
@@ -53,8 +53,8 @@ const drawProjectsToList = (
 
   projectTitleH1.addEventListener("click", function () {
     displayPanel.innerHTML = "";
-    
-    drawTodo(pm, project, displayPanel);
+    1;
+    drawExistingTodos(pm, project, displayPanel);
     let newFormButton = createNewTodoButton(pm,project, displayPanel);
   });
   projectDiv.appendChild(projectTitleH1);

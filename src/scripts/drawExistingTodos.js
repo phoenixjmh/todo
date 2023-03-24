@@ -1,10 +1,10 @@
-import drawTodo from "./drawTodo";
+import drawExistingTodo from "./drawExistingTodo";
 
-const drawTodo = (pm, project, displayPanel) => {
+const drawExistingTodos = (pm, project, displayPanel) => {
   displayPanel.innerHTML = "";
   const todoArray = project.getAll();
   todoArray.forEach((todo) => {
-    const tempTodoDiv = drawTodo(todo, displayPanel, project, pm);
+    const tempTodoDiv = drawExistingTodo(todo, displayPanel, project, pm);
   });
 };
-export default drawTodo;
+export default drawExistingTodos;

@@ -1,5 +1,6 @@
 import createNewTodoButton from "./newTodoButton";
 import drawExistingTodos from "./drawExistingTodos";
+import removeElement from "./removeElement";
 
 const drawProjectsToList = (
   pm,
@@ -21,6 +22,18 @@ const drawProjectsToList = (
   let newNameInput = document.createElement("input");
   newNameInput.id = "new-name-input";
   newNameInput.value = project.title;
+  let removeButton=document.createElement('button');
+  removeButton.classList.add('.project-remove-button');
+  removeButton.textContent='X';
+
+  removeButton.addEventListener('click',()=>{
+    removeElement(pm,project.id);
+    localStorage.setItem("packageManager", JSON.stringify(pm));
+
+    console.log("after remove",pm);
+    projectDiv.remove();
+    
+  })
 
   editButton.addEventListener("click", () => {
     projectTitleH1.remove();
@@ -46,6 +59,7 @@ const drawProjectsToList = (
   });
   projectDiv.appendChild(projectTitleH1);
   projectDiv.appendChild(editButton);
+  projectDiv.appendChild(removeButton);
 
   projManDiv.appendChild(projectDiv);
   return projectDiv;

@@ -25,8 +25,17 @@ if(localStorage.getItem("packageManager")!=null){
             let tempTodo=new Todo(todo._title,todo._description,todo._dueDate,'',todo._id);
             proj.addTodo(tempTodo);
         })
-        //let proj=new Project()
+        
     })
+    if(pm.getAll().length<1)
+    {
+        let defaultProject=new Project('Project',0);
+    pm.addProj(defaultProject);
+    }
+}
+else{
+    let proj=new Project('Project',0);
+    pm.addProj(proj);
 }
 
 

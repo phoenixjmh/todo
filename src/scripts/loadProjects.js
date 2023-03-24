@@ -19,7 +19,7 @@ const loadProjects = (
     );
     console.log("Named",project.title);
     project.div = tempDiv;
-    localStorage.setItem('packageManager',projectManagerObject);
+    localStorage.setItem('packageManager',JSON.stringify(projectManagerObject));
   });
 };
 export default loadProjects;

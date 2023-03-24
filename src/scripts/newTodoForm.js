@@ -15,7 +15,7 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   dueDateLabel.setAttribute("for", "form-todo-dueDate");
   dueDateLabel.textContent = "Due Date";
   let dueDateInput = document.createElement("input");
-  dueDateInput.setAttribute("type", "text");
+  dueDateInput.setAttribute("type", "date");
   dueDateInput.id = "form-todo-dueDate";
   let priorityLabel = document.createElement("label");
   priorityLabel.setAttribute("for", "form-todo-priority");
@@ -41,6 +41,10 @@ const createNewTodoForm = (pm,project, displayPanel) => {
       priorityInput.value,
       project.getAll().length
     );
+    if(tempTodoName._dueDate===''){
+      tempTodoName._dueDate='Set Date';
+
+    }
     project.addTodo(tempTodoName);
     newTodoFormDiv.remove();
     drawExistingTodos(pm,project, displayPanel);

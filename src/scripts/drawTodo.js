@@ -25,12 +25,37 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   let todoTitle = document.createElement("p");
   todoTitle.classList.add("title");
   todoTitle.textContent = todo.title;
-  let todoDescH4 = document.createElement("h4");
-  todoDescH4.classList.add("description");
-  todoDescH4.textContent = todo.description;
+  
   let todoDueDateH4 = document.createElement("h4");
   todoDueDateH4.classList.add("due-date");
   todoDueDateH4.textContent = todo.dueDate;
+
+let newInputDate = document.createElement("input");
+newInputDate.setAttribute('type','date');
+newInputDate.classList.add("todo-new-date");
+newInputDate.value = todo.dueDate;
+  todoDueDateH4.addEventListener('click',()=>{
+     todoDueDateH4.appendChild(newInputDate);
+     newInputDate.focus();
+
+  });
+  newInputDate.onblur = () => {
+    if(newInputDate.value!=='')
+    {
+      todo.dueDate = newInputDate.value;
+     todoDueDateH4.value = todo.dueDate;
+     todoDueDateH4.textContent=todo.dueDate;
+     localStorage.setItem("packageManager", JSON.stringify(pm));
+     
+    }
+    newInputDate.remove();
+  };
+  newInputDate.addEventListener('keyup',({key})=>{
+    if(key==="Enter")
+    newInputDate.blur();
+  });
+
+
   let removeButton = document.createElement("button");
   removeButton.classList.add("remove-todo");
   removeButton.textContent = "Remove";

@@ -54,6 +54,18 @@ body{
     width:100%;
     font-size:1.5rem;
 }
+.due-date{
+    position: relative;
+        z-index: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+}
+.todo-new-date{
+    position: absolute;
+        left: 0;
+        width: 100%;
+        font-size: 1.5rem;
+}
 .create-project-form{
     border:2px solid black;
     height:20%;

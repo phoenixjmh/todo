@@ -1,7 +1,6 @@
 import drawTodo from "./drawTodo";
 
 const drawAllTodos=(pm,displayPanel)=>{
-    let allTodos=[];
     let allProjects = pm.getAll();
     allProjects.forEach((project)=>{
         let tempTodoArr=project.getAll();

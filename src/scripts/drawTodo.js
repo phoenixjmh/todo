@@ -70,6 +70,7 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   todoDiv.ondragend = (event) => {
     event.preventDefault();
     drawExistingTodos(pm, project, displayPanel);
+    
   };
   todoDueDateH4.addEventListener("click", () => {
     todoDueDateH4.appendChild(newInputDate);

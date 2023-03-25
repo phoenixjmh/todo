@@ -1,0 +1,7 @@
+
+    The design decisions I made while developing this were all about trying to add basic functionality, implemented in a robust way.
+Not every module needs to have super custom code written in; for example, when a Todo or Project is interacted with, you're actually interacting directly
+with the stored object within. Meaning: When you change a todo's name through the dom, or its parent project, you're actually changing the definition in 
+the object's memory. When an object has a parameter changed, it is reflected everywhere. 
+    All projects are stored in the project manager, all todos are stored in a project, all parameters are stored in a Todo object, so in theory,
+any object can be accessed from another. ID's are being used on each level, as a way to store an object's position in an array.

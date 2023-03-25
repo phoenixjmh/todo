@@ -2,6 +2,13 @@ import drawExistingTodos from "./drawExistingTodos";
 
 import Todo from "./Todo";
 const createNewTodoForm = (pm,project, displayPanel) => {
+  let totalTodos = ()=> {
+    let sum=0;
+    pm.getAll().forEach((p)=>{
+      p.getAll().forEach((t)=> sum+=1);
+    })
+    return sum;
+  }
   let newTodoFormDiv = document.createElement("div");
   newTodoFormDiv.classList.add("create-todo-form");
   let newTodoForm = document.createElement("form");
@@ -39,7 +46,7 @@ const createNewTodoForm = (pm,project, displayPanel) => {
       " ",
       dueDateInput.value,
       priorityInput.value,
-      project.getAll().length
+      totalTodos()
     );
     if(tempTodoName._dueDate===''){
       tempTodoName._dueDate='Set Date';

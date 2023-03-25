@@ -29,7 +29,7 @@ if(localStorage.getItem("packageManager")!=null){
     })
     if(pm.getAll().length<1)
     {
-        let defaultProject=new Project('Project',0);
+        let defaultProject=new Project('All',0);
     pm.addProj(defaultProject);
     }
 }

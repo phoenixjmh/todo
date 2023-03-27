@@ -25,9 +25,13 @@ const drawProjectManager = (pm, displayPanel) => {
 const drawProjectDisplayPanel = () => {
   let mainPanel = document.createElement("div");
   mainPanel.classList.add("main-panel");
+  let expandArrow=document.createElement('div');
+  expandArrow.id='expand-arrow';
+  expandArrow.textContent='<';
   let displayPanelDiv = document.createElement("div");
   displayPanelDiv.classList.add("project-display-panel");
   mainPanel.appendChild(displayPanelDiv);
+  mainPanel.appendChild(expandArrow);
   document.body.appendChild(mainPanel);
 
   return displayPanelDiv;

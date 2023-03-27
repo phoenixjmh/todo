@@ -1,0 +1,64 @@
+@mixin animations{
+
+    @keyframes expand{
+        from{width:0}
+        to{width:100%}
+    }
+    @keyframes close {
+        from{width:100%}
+        to{width:0}
+    }
+    @keyframes openDisplay{
+        from{
+            position:relative;
+            width:100vw;
+            height:100%;
+            right:0%;
+            z-index: 2;
+        }
+        to{
+            position:relative;
+            width:0vw;
+            right:100%;
+    
+        }
+    }
+    @keyframes closeDisplay{
+        from{
+            position:relative;
+            width:0%;
+            right:100%;
+        }
+        to{
+            
+            position:relative;
+            width:100%;
+            height:100%;
+            right:0%;
+            z-index: 2;
+        }
+    }
+    @keyframes fiftyfiftyDisplayPanel{
+        from{ position:relative;
+            height:100%;
+            width:0;
+            left:0;
+            z-index:0;}
+        to{
+            width:50%;
+
+            }
+    }
+    @keyframes fiftyfiftySidePanel{
+        from{
+            background-color: rgb(29, 29, 32);
+            height:100%;
+            width:100%;
+            position:relative;
+            z-index: 2;
+        }
+        to{
+            width:50%;
+        }
+    }
+}

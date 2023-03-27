@@ -1,9 +1,27 @@
+@include animations;
+
 .main-panel{
-    flex :3 3 auto;
-    border:2px solid rebeccapurple;
-    height:100%;
     position:relative;
-    z-index:2;
+    height:100%;
+    width:0;
+    left:0;
+    z-index:0;
+
+}
+.expand-panel{
+    animation-name:expand;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+.close-panel{
+    animation-name:close;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+.fifty-fifty-display{
+    animation-name:fiftyfiftyDisplayPanel;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
 
 }
 .todo{
@@ -40,9 +58,15 @@
     border:2px solid black;
     height:20%;
     position:absolute;
+    z-index: 3;
     top:50%;
     left:50%;
     background-color: gray;
+}
+#expand-arrow{
+    font-size:2rem;
+    position:absolute;
+    top:50%;
 }
 
 .create-todo-form{

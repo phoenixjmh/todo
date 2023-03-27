@@ -2,6 +2,14 @@ import drawExistingTodos from "./drawExistingTodos";
 import removeElement from "./removeElement";
 import {format} from "date-fns"
 const drawTodo = (todo, displayPanel, project, pm) => {
+  const expandArrow=document.querySelector('#expand-arrow');
+  const sidePanel=document.querySelector('.side-panel');
+  expandArrow.ondragover=()=>{
+    displayPanel.parentElement.classList.remove('expand-panel');
+      sidePanel.classList.remove('display-open');
+      displayPanel.parentElement.classList.add('fifty-fifty-display');
+      sidePanel.classList.add('fifty-fifty-sidepanel');
+  };
   let todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
   todoDiv.id = "todo-" + todo.id;

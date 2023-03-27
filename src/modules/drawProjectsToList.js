@@ -13,6 +13,13 @@ const drawProjectsToList = (
   displayPanel
 ) => {
   const sidePanel = projManDiv.parentElement;
+  const expandArrow=document.querySelector('#expand-arrow');
+  expandArrow.onclick = ()=>{
+      displayPanel.parentElement.classList.remove('expand-panel');
+      sidePanel.classList.remove('display-open');
+      displayPanel.parentElement.classList.add('close-panel');
+      sidePanel.classList.add('display-closed');
+  }
   if(project.title!=="All")
   {
 
@@ -66,6 +73,11 @@ const drawProjectsToList = (
    });
   
    projectTitleH1.addEventListener("click", function () {
+    if(displayPanel.parentElement.classList.contains('close-panel')){
+      displayPanel.parentElement.classList.remove('close-panel');
+      sidePanel.classList.remove('display-closed');
+    }
+    displayPanel.parentElement.classList.add('expand-panel');
     sidePanel.classList.add('display-open');
      displayPanel.innerHTML = "";
      1;
@@ -88,8 +100,12 @@ else
   projectDiv.appendChild(projectTitleH1);
   projManDiv.appendChild(projectDiv);
   projectTitleH1.addEventListener("click", function () {
+    if(displayPanel.parentElement.classList.contains('close-panel')){
+      displayPanel.parentElement.classList.remove('close-panel');
+      sidePanel.classList.remove('display-closed');
+    }
+    displayPanel.parentElement.classList.add('expand-panel');
     sidePanel.classList.add('display-open');
-
     displayPanel.innerHTML = "";
     drawAllTodos(pm,displayPanel);
     let newFormButton = createNewTodoButton(pm, project, displayPanel);

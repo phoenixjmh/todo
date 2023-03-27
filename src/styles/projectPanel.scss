@@ -1,42 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
-@keyframes openDisplay{
-    from{
-        position:relative;
-        right:0%;
-        z-index: 1;
-    }
-    to{
-        position:relative;
-       
-        right:100%;
-
-    }
-}
+@include animations;
 @media (max-width:500px){
     .side-panel{
         background-color:rgb(66, 66, 66);
         width:100%;
         height:100%;
     }
+    .display-open{
+        animation-duration: 200ms;
+    }
+    .display-closed{
+        animation-duration: 200ms;
+    }
 }
+
+
+
+
+
 .side-panel{
     background-color: rgb(29, 29, 32);
-    flex: 1 1 auto;
     height:100%;
+    width:100%;
     position:relative;
-        z-index: 1;
+        z-index: 2;
     
 
 }
 .display-open{
     animation-name:openDisplay;
     animation-delay:0ms;
-    animation-duration:1s;
+    animation-duration:500ms;
     animation-fill-mode: forwards;
 }
+.display-closed{
+    animation-name:closeDisplay;
+    animation-delay:0ms;
+    animation-duration:500ms;
+    animation-fill-mode: forwards;
+}
+.fifty-fifty-sidepanel{
+    animation-name:fiftyfiftySidePanel;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+
+}
 .project-manager{
-    border:2px solid white;
 }
 
 .project-display-panel{

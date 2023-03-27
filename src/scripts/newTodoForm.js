@@ -40,27 +40,44 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   newTodoFormDiv.appendChild(newTodoForm);
   newTodoFormDiv.appendChild(createButton);
   document.body.appendChild(newTodoFormDiv);
+  
+  titleInput.focus();
+  titleInput.onblur=()=>{
+    if(titleInput.value!=='')
+    addToDOM();
+    else
+    newTodoFormDiv.remove();
+  }
+  newTodoForm.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    addToDOM();
+  })
   createButton.addEventListener("click", () => {
+    addToDOM();
+  });
+
+  const addToDOM=()=>{
     let date;
     if(dueDateInput.value!=='')
     date=format(new Date(`${dueDateInput.value}T00:00`),'MM/dd/yyyy');
     
     else
     date='Set Date';
-    
-    let tempTodoName = new Todo(
-      titleInput.value,
-      " ",
-      date,
-      priorityInput.value,
-      totalTodos()
-    );
+
+    if(titleInput.value!==''){
+
+      let tempTodoName = new Todo(
+        titleInput.value,
+        " ",
+        date,
+        priorityInput.value,
+        totalTodos());
     
     project.addTodo(tempTodoName);
     newTodoFormDiv.remove();
     drawExistingTodos(pm,project, displayPanel);
     localStorage.setItem("packageManager", JSON.stringify(pm));
-
-  });
+      }
+  }
 };
 export default createNewTodoForm;

@@ -19,12 +19,35 @@ const createNewProjectForm = (projManDiv, pm, displayPanel) => {
   newProjectFormDiv.appendChild(createButton);
   document.body.appendChild(newProjectFormDiv);
   createButton.addEventListener("click", () => {
+    if(nameInput.value!=='')
+    addToDOM();
+     else
+       newProjectFormDiv.remove();
+  });
+  nameInput.onblur=()=>{
+    if(nameInput.value!=='')
+    addToDOM();
+     else
+       newProjectFormDiv.remove();
+  }
+  newProjectForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if(nameInput.value!=='')
+   addToDOM();
+    else
+      newProjectFormDiv.remove();
+
+
+  })
+  const addToDOM = () => {
     newProjectFormDiv.remove();
     let tempProjName = new Project(nameInput.value, pm.getAll().length);
     pm.addProj(tempProjName);
     loadProjects(pm, projManDiv, displayPanel);
     localStorage.setItem("packageManager", JSON.stringify(pm));
 
-  });
+  }
 };
+
+
 export default createNewProjectForm;

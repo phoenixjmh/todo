@@ -19,7 +19,6 @@ const drawAllTodos=(pm,displayPanel)=>{
         allTodos.sort((a,b)=>{
             let dateA=new Date(a.childNodes[2].innerHTML);
             let dateB=new Date(b.childNodes[2].innerHTML);
-            console.log(dateA,dateB);
             return dateA-dateB;
             
         });
@@ -37,7 +36,6 @@ const drawAllTodos=(pm,displayPanel)=>{
      }
 
     
-    console.log(allTodos);
     
 
 }     

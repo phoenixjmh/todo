@@ -38,27 +38,5 @@
             z-index: 2;
         }
     }
-    @keyframes fiftyfiftyDisplayPanel{
-        from{ position:relative;
-            height:100%;
-            width:0;
-            left:0;
-            z-index:0;}
-        to{
-            width:50%;
 
-            }
-    }
-    @keyframes fiftyfiftySidePanel{
-        from{
-            background-color: rgb(29, 29, 32);
-            height:100%;
-            width:100%;
-            position:relative;
-            z-index: 2;
-        }
-        to{
-            width:50%;
-        }
-    }
 }

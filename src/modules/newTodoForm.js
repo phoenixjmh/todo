@@ -43,10 +43,10 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   
   titleInput.focus();
   titleInput.onblur=()=>{
-    if(titleInput.value!=='')
-    addToDOM();
-    else
-    newTodoFormDiv.remove();
+  //   if(titleInput.value!=='')
+  //   addToDOM();
+  //   else
+  //   newTodoFormDiv.remove();
   }
   newTodoForm.addEventListener('submit',(event)=>{
     event.preventDefault();

@@ -12,6 +12,7 @@ const drawProjectsToList = (
   projManDiv,
   displayPanel
 ) => {
+  const sidePanel = projManDiv.parentElement;
   if(project.title!=="All")
   {
 
@@ -65,6 +66,7 @@ const drawProjectsToList = (
    });
   
    projectTitleH1.addEventListener("click", function () {
+    sidePanel.classList.add('display-open');
      displayPanel.innerHTML = "";
      1;
      drawExistingTodos(pm, project, displayPanel);
@@ -86,6 +88,8 @@ else
   projectDiv.appendChild(projectTitleH1);
   projManDiv.appendChild(projectDiv);
   projectTitleH1.addEventListener("click", function () {
+    sidePanel.classList.add('display-open');
+
     displayPanel.innerHTML = "";
     drawAllTodos(pm,displayPanel);
     let newFormButton = createNewTodoButton(pm, project, displayPanel);

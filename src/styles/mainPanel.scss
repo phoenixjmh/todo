@@ -1,40 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-
-body{
-    display:flex;
-    height:100vh;
-    width:100%;
-    font-family:'Roboto',sans-serif;
-    font-weight:700;
-    font-size:16pt;
-}
-
-.side-panel{
-    background-color: rgb(55, 55, 239);
-    flex: 1 1 auto;
-    height:100%;
-}
-.project-manager{
-}
 .main-panel{
     flex :3 3 auto;
     border:2px solid rebeccapurple;
     height:100%;
+    position:relative;
+    z-index:2;
 
-}
-.project-display-panel{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.project{
-    justify-content: center;
-    align-items: center;
-    display:flex;
-   button{
-    height:1rem;
-   }
 }
 .todo{
     width:80%;
@@ -83,4 +53,3 @@ body{
         left: 50%;
         background-color: gray;
 }
-

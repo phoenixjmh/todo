@@ -1,14 +1,13 @@
-import ProjectManager from "./scripts/ProjectManager";
-import Todo from "./scripts/Todo";
-import Project from "./scripts/Project";
+import ProjectManager from "./modules/ProjectManager";
+import Todo from "./modules/Todo";
+import Project from "./modules/Project";
 import {
   drawProjectManager,
   drawProjectDisplayPanel,
-} from "./scripts/loadMain";
-import drawProjectsOnLoad from "./scripts/loadProjects";
-import "./style.scss";
-import loadProjects from "./scripts/loadProjects";
-import storeObject from "./scripts/Storage";
+} from "./modules/loadMain";
+import drawProjectsOnLoad from "./modules/loadProjects";
+import "./main.scss";
+import loadProjects from "./modules/loadProjects";
 let savedProjects;
 let pm = new ProjectManager();
 if(localStorage.getItem("packageManager")!=null){

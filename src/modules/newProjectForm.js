@@ -10,6 +10,7 @@ const createNewProjectForm = (projManDiv, pm, displayPanel) => {
   let nameInput = document.createElement("input");
   nameInput.setAttribute("type", "text");
   nameInput.id = "form-project-name";
+  nameInput.focus();
   let createButton = document.createElement("button");
   createButton.textContent = "Create";
   createButton.classList.add("form-button");

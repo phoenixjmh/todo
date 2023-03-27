@@ -1,6 +1,6 @@
 import drawExistingTodos from "./drawExistingTodos";
 import removeElement from "./removeElement";
-
+import {format} from "date-fns"
 const drawTodo = (todo, displayPanel, project, pm) => {
   let todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
@@ -41,8 +41,7 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   removeButton.addEventListener("click", () => {
     removeElement(project, todo.id);
     todoDiv.remove();
-    console.log(todo.id);
-    console.log(pm.getAll());
+
     localStorage.setItem("packageManager", JSON.stringify(pm));
   });
 
@@ -78,8 +77,9 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   });
   newInputDate.onblur = () => {
     if (newInputDate.value !== "") {
-      todo.dueDate = newInputDate.value;
-      todoDueDateH4.value = todo.dueDate;
+      let date=format(new Date(`${newInputDate.value}T00:00`),'MM/dd/yyyy');
+      todo.dueDate = date;
+      todoDueDateH4.valueAsDate = date;
       todoDueDateH4.textContent = todo.dueDate;
       localStorage.setItem("packageManager", JSON.stringify(pm));
     }

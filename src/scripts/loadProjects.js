@@ -5,9 +5,7 @@ const loadProjects = (
   displayPanel
 ) => {
   projectManagerDiv.innerHTML = "";
-  console.log("hello from loadProjects",projectManagerObject.projects)
   const projArray = projectManagerObject.projects;
-  console.log('copied array',projArray);
   projArray.forEach((project) => {
     const tempDiv = drawProjectsToList(
       projectManagerObject,

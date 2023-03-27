@@ -17,7 +17,6 @@ const drawProjectManager = (pm, displayPanel) => {
   parentNode.insertBefore(sidePanel, mainPanel);
   createFormNewProject.addEventListener("click", () => {
     createNewProjectForm(projectManagerDiv, pm, displayPanel); ///DEPEND
-    console.log("button");
   });
 
   return projectManagerDiv;

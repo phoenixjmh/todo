@@ -45,7 +45,6 @@ const drawProjectsToList = (
      removeElement(pm, project.id);
      localStorage.setItem("packageManager", JSON.stringify(pm));
   
-     console.log("after remove", pm);
      projectDiv.remove();
    });
   
@@ -100,7 +99,6 @@ const moveTodo=(event,project,pm)=>{
    const sourceProject = JSON.parse(
      event.dataTransfer.getData("text")
    ).projectObj;
-   console.log("Adding", todoToAdd, "to", project.title, "from", sourceProject);
    const todo = new Todo(
      todoToAdd._title,
      todoToAdd._description,
@@ -109,14 +107,11 @@ const moveTodo=(event,project,pm)=>{
      todoToAdd._id
    );
    project.addTodo(todo);
-   console.log(todoToAdd._id, "unparsed id");
-   console.log("referenced todo", todo);
    let arr = pm.getAll();
    for (let p in arr) {
      if (arr[p].id == sourceProject._id) {
        let projRef = arr[p];
        removeElement(projRef, todo.id);
-       console.log("removeElement args", projRef, todo.id);
      }
    }
    localStorage.setItem("packageManager", JSON.stringify(pm));

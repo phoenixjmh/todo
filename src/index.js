@@ -11,17 +11,14 @@ import loadProjects from "./scripts/loadProjects";
 import storeObject from "./scripts/Storage";
 let savedProjects;
 let pm = new ProjectManager();
-console.log(pm.getAll());
 if(localStorage.getItem("packageManager")!=null){
 
     savedProjects = JSON.parse(localStorage.getItem("packageManager")).projects;
-    console.log("saved proj",savedProjects);
     savedProjects.forEach((item,index)=>{
         let proj=new Project(item._title,item._id,item._div);
         pm.addProj(proj);
         let todos=item.todos;
         todos.forEach((todo)=>{
-            console.log(todo);
             let tempTodo=new Todo(todo._title,todo._description,todo._dueDate,'',todo._id);
             proj.addTodo(tempTodo);
         })

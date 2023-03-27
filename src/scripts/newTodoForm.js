@@ -1,5 +1,5 @@
 import drawExistingTodos from "./drawExistingTodos";
-
+import {format} from "date-fns";
 import Todo from "./Todo";
 const createNewTodoForm = (pm,project, displayPanel) => {
   let totalTodos = ()=> {
@@ -41,17 +41,21 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   newTodoFormDiv.appendChild(createButton);
   document.body.appendChild(newTodoFormDiv);
   createButton.addEventListener("click", () => {
+    let date;
+    if(dueDateInput.value!=='')
+    date=format(new Date(`${dueDateInput.value}T00:00`),'MM/dd/yyyy');
+    
+    else
+    date='Set Date';
+    
     let tempTodoName = new Todo(
       titleInput.value,
       " ",
-      dueDateInput.value,
+      date,
       priorityInput.value,
       totalTodos()
     );
-    if(tempTodoName._dueDate===''){
-      tempTodoName._dueDate='Set Date';
-
-    }
+    
     project.addTodo(tempTodoName);
     newTodoFormDiv.remove();
     drawExistingTodos(pm,project, displayPanel);

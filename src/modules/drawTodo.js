@@ -7,9 +7,10 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   expandArrow.ondragover=()=>{
     displayPanel.parentElement.classList.remove('expand-panel');
       sidePanel.classList.remove('display-open');
-      displayPanel.parentElement.classList.add('fifty-fifty-display');
-      sidePanel.classList.add('fifty-fifty-sidepanel');
+      displayPanel.parentElement.classList.add('close-panel');
+      sidePanel.classList.add('display-closed');
   };
+  
   let todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
   todoDiv.id = "todo-" + todo.id;

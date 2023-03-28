@@ -69,7 +69,7 @@ const drawProjectsToList = (
      projectTitleH1.textContent = newNameInput.value;
      project.title = newNameInput.value;
      newNameInput.remove();
-     projectDiv.insertBefore(projectTitleH1, editButton);
+     projectDiv.insertBefore(projectTitleH1, buttonPanel);
      localStorage.setItem("packageManager", JSON.stringify(pm));
    };
    newNameInput.addEventListener("keyup", ({ key }) => {

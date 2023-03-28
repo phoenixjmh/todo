@@ -4,9 +4,15 @@
     position:relative;
     height:100%;
     width:0;
-    right:100%;
+    left:100%;
     z-index:0;
 
+}
+.project-display-panel{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .expand-panel{
     animation-name:expand;

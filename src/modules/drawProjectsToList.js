@@ -29,7 +29,7 @@ const drawProjectsToList = (
     editButton.textContent = "rename";
     projectDiv.classList.add("project");
     projectDiv.id = "project-" + id;
-    let projectTitleH1 = document.createElement("h1");
+    let projectTitleH1 = document.createElement("p");
     projectTitleH1.classList.add("project-name");
     projectTitleH1.textContent = project.title;
     let newNameInput = document.createElement("input");
@@ -41,8 +41,12 @@ const drawProjectsToList = (
   
    
     projectDiv.appendChild(projectTitleH1);
-    projectDiv.appendChild(editButton);
-    projectDiv.appendChild(removeButton);
+    let buttonPanel = document.createElement('div');
+    buttonPanel.classList.add('button-panel');
+    buttonPanel.appendChild(editButton);
+    buttonPanel.appendChild(removeButton);
+    projectDiv.appendChild(buttonPanel);
+    
     
     projManDiv.appendChild(projectDiv);
   
@@ -94,7 +98,7 @@ else
   let projectDiv = document.createElement("div");
   projectDiv.classList.add("project");
   projectDiv.id = 'all-projects-container';
-  let projectTitleH1 = document.createElement("h1");
+  let projectTitleH1 = document.createElement("p");
   projectTitleH1.classList.add("project-name");
   projectTitleH1.textContent = project.title;
   projectDiv.appendChild(projectTitleH1);

@@ -1,12 +1,17 @@
 @mixin animations{
 
     @keyframes expand{
-        from{width:0}
-        to{width:100%}
+        from{width:0vw;
+        right: 100%;
+        }
+        to{width:100%;
+        right:0;}
     }
     @keyframes close {
         from{width:100%}
-        to{width:0}
+        to{width:0vw;
+        visibility:hidden;
+    }
     }
     @keyframes openDisplay{
         from{
@@ -20,21 +25,22 @@
             position:relative;
             width:0vw;
             right:100%;
+            visibility: hidden;
     
         }
     }
     @keyframes closeDisplay{
         from{
             position:relative;
-            width:0%;
+            width:0vw;
             right:100%;
         }
         to{
             
             position:relative;
-            width:100%;
+            width:100vw;
             height:100%;
-            right:0%;
+            right:0;
             z-index: 2;
         }
     }

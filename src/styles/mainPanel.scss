@@ -4,7 +4,7 @@
     position:relative;
     height:100%;
     width:0;
-    left:0;
+    right:100%;
     z-index:0;
 
 }
@@ -49,15 +49,8 @@
         width: 100%;
         font-size: 1.5rem;
 }
-.create-project-form{
-    border:2px solid black;
-    height:20%;
-    position:absolute;
-    z-index: 3;
-    top:50%;
-    left:50%;
-    background-color: gray;
-}
+
+
 #expand-arrow{
     font-size:2rem;
     position:absolute;

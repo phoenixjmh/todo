@@ -25,9 +25,11 @@ const drawProjectsToList = (
   {
 
     let projectDiv = document.createElement("div");
-    let editButton = document.createElement("button");
+    let editButton = document.createElement("img");
+
     editButton.classList.add("edit-project");
-    editButton.textContent = "rename";
+    
+    
     projectDiv.classList.add("project");
     projectDiv.id = "project-" + id;
     let projectTitleH1 = document.createElement("p");
@@ -40,7 +42,6 @@ const drawProjectsToList = (
     removeButton.classList.add('.project-remove-button');
     removeButton.textContent='X';
   
-   
     projectDiv.appendChild(projectTitleH1);
     let buttonPanel = document.createElement('div');
     buttonPanel.classList.add('button-panel');

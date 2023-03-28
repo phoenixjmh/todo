@@ -3,7 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 *{
     margin:0;
-    font-family:'Gruppo',sans-serif;
+    font-family:'Open Sans',sans-serif;
+    box-sizing: border-box;
 }
 body{
     display:flex;
@@ -13,8 +14,10 @@ body{
     width:100vw;
     font-weight:700;
     font-size:18pt;
+    background-color: $bgColor;
 }
 @import './styles/projectPanel.scss';
-@import 'styles/mainPanel.scss';
+@import './styles/mainPanel.scss';
+@import './styles/todos.scss';
 
 

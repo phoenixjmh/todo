@@ -1,6 +1,9 @@
 import createNewProjectForm from "./newProjectForm";
 
 const drawProjectManager = (pm, displayPanel) => {
+ 
+  
+
   let sidePanel = document.createElement("div");
   sidePanel.classList.add("side-panel");
   let projectPanelTitle = document.createElement('div');
@@ -27,14 +30,20 @@ const drawProjectManager = (pm, displayPanel) => {
 const drawProjectDisplayPanel = () => {
   let mainPanel = document.createElement("div");
   mainPanel.classList.add("main-panel");
+  let navBar=document.createElement('div');
+  navBar.id='nav-bar';
   let expandArrow=document.createElement('div');
   expandArrow.id='expand-arrow';
   expandArrow.textContent='<';
   let displayPanelDiv = document.createElement("div");
   displayPanelDiv.classList.add("project-display-panel");
-  
+  let projectTitle = document.createElement('p');
+  projectTitle.textContent='Project Title';
+  projectTitle.id='nav-title';
+  navBar.appendChild(expandArrow);
+  navBar.appendChild(projectTitle);
+  mainPanel.appendChild(navBar);
   mainPanel.appendChild(displayPanelDiv);
-  mainPanel.appendChild(expandArrow);
   document.body.appendChild(mainPanel);
 
   return displayPanelDiv;

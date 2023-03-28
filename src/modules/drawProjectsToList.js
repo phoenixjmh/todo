@@ -12,6 +12,7 @@ const drawProjectsToList = (
   projManDiv,
   displayPanel
 ) => {
+  const navTitle=document.querySelector('#nav-title');
   const sidePanel = projManDiv.parentElement;
   const expandArrow=document.querySelector('#expand-arrow');
   expandArrow.onclick = ()=>{
@@ -85,6 +86,8 @@ const drawProjectsToList = (
     sidePanel.classList.add('display-open');
      displayPanel.innerHTML = "";
      1;
+     
+     navTitle.textContent=project.title;
      drawExistingTodos(pm, project, displayPanel);
      let newFormButton = createNewTodoButton(pm, project, displayPanel);
    });
@@ -111,6 +114,7 @@ else
     displayPanel.parentElement.classList.add('expand-panel');
     sidePanel.classList.add('display-open');
     displayPanel.innerHTML = "";
+    navTitle.textContent=project.title;
     drawAllTodos(pm,displayPanel);
     let newFormButton = createNewTodoButton(pm, project, displayPanel);
   });

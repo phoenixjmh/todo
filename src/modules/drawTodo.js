@@ -23,7 +23,7 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   todoTitle.classList.add("title");
   todoTitle.textContent = todo.title;
 
-  let todoDueDateH4 = document.createElement("h4");
+  let todoDueDateH4 = document.createElement("p");
   todoDueDateH4.classList.add("due-date");
   todoDueDateH4.textContent = todo.dueDate;
 
@@ -34,11 +34,17 @@ const drawTodo = (todo, displayPanel, project, pm) => {
 
   let removeButton = document.createElement("button");
   removeButton.classList.add("remove-todo");
-  removeButton.textContent = "Remove";
-  todoDiv.appendChild(todoCheckbox);
+  removeButton.textContent = "X";
+  let removeButtonContainer= document.createElement('div');
+  removeButtonContainer.classList.add('remove-button-container');
+  removeButtonContainer.appendChild(removeButton);
+ let  checkboxContainer = document.createElement('div');
+ checkboxContainer.classList.add("checkbox-container");
+  checkboxContainer.appendChild(todoCheckbox);
+  todoDiv.appendChild(checkboxContainer);
   todoDiv.appendChild(todoTitle);
   todoDiv.appendChild(todoDueDateH4);
-  todoDiv.appendChild(removeButton);
+  todoDiv.appendChild(removeButtonContainer);
   displayPanel.appendChild(todoDiv);
 
   

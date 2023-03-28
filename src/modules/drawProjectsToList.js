@@ -25,11 +25,14 @@ const drawProjectsToList = (
   {
 
     let projectDiv = document.createElement("div");
-    let editButton = document.createElement("img");
+    let editButton = document.createElement("button");
+    
 
     editButton.classList.add("edit-project");
     
-    
+    let editIcon=document.createElement('img');
+    editIcon.classList.add('edit-icon');
+    editButton.appendChild(editIcon);
     projectDiv.classList.add("project");
     projectDiv.id = "project-" + id;
     let projectTitleH1 = document.createElement("p");

@@ -101,9 +101,35 @@
         position:absolute;
         z-index:3;
         left:70%;
+        display:flex;
     
    }
 }
+.edit-project{
+    appearance:none;
+    background:none;
+    border:2px solid $theme-font;
+    border-radius: .4rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height:1.6rem;
+   width:1.6rem;
+}
+.edit-icon{
+    width: 1rem;
+    height: 1rem;
+    border:2px solid $theme-font;
+    mask-repeat: no-repeat;
+    color:$theme-font;
+    background: $theme-font;
+    -webkit-mask-image: url(./img/pencil.svg);
+    mask-image: url(./img/pencil.svg);
+    -webkit-mask-size: 1rem;
+    mask-size: 1rem;
+
+}
+
 .new-project-button{
     height:2rem;
     width:10rem;

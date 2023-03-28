@@ -37,7 +37,7 @@
 
 .side-panel{
     font-family:'Gruppo',cursive;
-    background-color: white;
+    background-color: rgb(48, 48, 48);
     height:100%;
     width:100%;
     position:relative;
@@ -45,8 +45,7 @@
     display:flex;
     flex-direction: column;
     justify-content: space-around;
-    background: rgb(251,235,215);
-    background: linear-gradient(0deg, rgba(251, 235, 215, 0.663) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+    background: rgb(34, 34, 34);
 
 
 }
@@ -66,22 +65,22 @@
 .project-manager{
     display:flex;
     height:30%;
+    width:100%;
     flex-direction:column;
     justify-content: space-between;
+    align-items: center;
 }
 .project{
     $pink-ish:rgba(255, 192, 203, 0.505);
     $goldish:rgba(251,235,215,1);
-    $theme-font:rgb(139, 67, 67);
-    background: rgb(251,235,215);
-    background: linear-gradient(0deg, rgba(251,235,215,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
     justify-content: flex-start;
     align-items: center;
-    padding: 1rem;
+    padding: .5rem 1rem .5rem 1rem;
     display:flex;
+    width:80%;
     color:$theme-font;
-     border-top:1px solid $pink-ish;
-     border-radius: 2%;
+     border:2px solid $theme-font;
+     border-radius: .5rem;
     // box-shadow:inset 1px 2px 6px 1px pink;
     .project-name{
         left:1rem;
@@ -105,9 +104,10 @@
     border:2px solid $theme-font;
     border-radius:.5rem;
     color:$theme-font;
-    background: white;
+    background: rgb(48, 48, 48);
     position:relative;
     left:25%;
+
 }
 #input-placeholder{
     position:relative;

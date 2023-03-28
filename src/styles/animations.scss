@@ -1,6 +1,6 @@
 $pink-ish:rgba(255, 192, 203, 0.505);
     $goldish:rgba(251,235,215,1);
-    $theme-font:rgb(139, 67, 67);
+    $theme-font:rgba(166, 69, 0, 0.985);
 
     @import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 
@@ -45,7 +45,7 @@ $pink-ish:rgba(255, 192, 203, 0.505);
         to{
             
             position:relative;
-            width:90vw;
+            width:100vw;
             height:100%;
             right:0;
             z-index: 2;

@@ -24,7 +24,8 @@ if (localStorage.getItem("packageManager") != null) {
       proj.addTodo(tempTodo);
     });
   });
-} else if (pm.getAll().length < 1) {
+}
+if (pm.getAll().length < 1) {
   const defaultProject = new Project("All", 0);
   pm.addProj(defaultProject);
 }

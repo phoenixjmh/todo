@@ -35,12 +35,13 @@ const drawProjectDisplayPanel = () => {
   navBar.id='nav-bar';
   let expandArrow=document.createElement('div');
   expandArrow.id='expand-arrow';
-  expandArrow.textContent='<';
+  // expandArrow.textContent='<';
   let displayPanelDiv = document.createElement("div");
   displayPanelDiv.classList.add("project-display-panel");
   let projectTitle = document.createElement('p');
   projectTitle.textContent='Project Title';
   projectTitle.id='nav-title';
+ 
   navBar.appendChild(expandArrow);
   navBar.appendChild(projectTitle);
   mainPanel.appendChild(navBar);

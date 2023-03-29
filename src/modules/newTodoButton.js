@@ -10,10 +10,15 @@ const createNewTodoButton = (pm,project, displayPanel) => {
     createNewTodoForm(pm,project, displayPanel);
   });
   let button = document.getElementById("todo-create-new");
+  let toolTipDiv=document.createElement('div');
+  toolTipDiv.id='tool-tip';
+  toolTipDiv.innerHTML='<p id="tip-paragraph">Try dragging and dropping a Task into a project!</p>'
+
   if (document.body.contains(button)) {
     button.remove();
   }
   mp.appendChild(createTodoFormButton);
+  mp.appendChild(toolTipDiv);
   return createTodoFormButton;
 };
 export default createNewTodoButton;

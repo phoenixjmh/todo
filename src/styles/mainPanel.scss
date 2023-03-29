@@ -53,8 +53,13 @@
 }
 
 #expand-arrow{
-    font-size:2rem;
     flex:1 1 auto;
+    background:$theme-font;
+    mask-image:url('./img/projects.svg');
+    mask-repeat: no-repeat;
+    mask-size:6rem;
+    width:3rem;
+    height:1.8rem;
 }
 #nav-title{
     flex :5 5 auto;
@@ -63,4 +68,12 @@
     .main-panel{
         border-radius: 2rem;
     }
+    #nav-bar{
+        height:4rem;
+    }
+}
+
+#tool-tip{
+    font-size:.8rem;
+    
 }

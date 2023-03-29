@@ -1,16 +1,17 @@
 import drawExistingTodos from "./drawExistingTodos";
 import removeElement from "./removeElement";
-import {format} from "date-fns"
+import { format } from "date-fns";
+import saveWork from "./Storage";
 const drawTodo = (todo, displayPanel, project, pm) => {
-  const expandArrow=document.querySelector('#expand-arrow');
-  const sidePanel=document.querySelector('.side-panel');
-  expandArrow.ondragover=()=>{
-    displayPanel.parentElement.classList.remove('expand-panel');
-      sidePanel.classList.remove('display-open');
-      displayPanel.parentElement.classList.add('close-panel');
-      sidePanel.classList.add('display-closed');
+  const expandArrow = document.querySelector("#expand-arrow");
+  const sidePanel = document.querySelector(".side-panel");
+  expandArrow.ondragover = () => {
+    displayPanel.parentElement.classList.remove("expand-panel");
+    sidePanel.classList.remove("display-open");
+    displayPanel.parentElement.classList.add("close-panel");
+    sidePanel.classList.add("display-closed");
   };
-  
+
   let todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
   todoDiv.id = "todo-" + todo.id;
@@ -35,11 +36,11 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   let removeButton = document.createElement("button");
   removeButton.classList.add("remove-todo");
   removeButton.textContent = "X";
-  let removeButtonContainer= document.createElement('div');
-  removeButtonContainer.classList.add('remove-button-container');
+  let removeButtonContainer = document.createElement("div");
+  removeButtonContainer.classList.add("remove-button-container");
   removeButtonContainer.appendChild(removeButton);
- let  checkboxContainer = document.createElement('div');
- checkboxContainer.classList.add("checkbox-container");
+  let checkboxContainer = document.createElement("div");
+  checkboxContainer.classList.add("checkbox-container");
   checkboxContainer.appendChild(todoCheckbox);
   todoDiv.appendChild(checkboxContainer);
   todoDiv.appendChild(todoTitle);
@@ -47,34 +48,43 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   todoDiv.appendChild(removeButtonContainer);
   displayPanel.appendChild(todoDiv);
 
-  
-
   let newInputText = document.createElement("input");
   newInputText.classList.add("todo-new-title");
   newInputText.value = todo.title;
 
-  removeButton.addEventListener("click", () => {
+  removeButton.onclick = () => {
     removeElement(project, todo.id);
     todoDiv.remove();
 
-    localStorage.setItem("packageManager", JSON.stringify(pm));
-  });
+    saveWork(pm);
+  };
 
-  todoTitle.addEventListener("click", () => {
+  todoTitle.onclick = () => {
     todoTitle.appendChild(newInputText);
     newInputText.focus();
-  });
+  };
+
+  todoDueDateH4.onclick = () => {
+    todoDueDateH4.appendChild(newInputDate);
+    newInputDate.focus();
+  };
+
   newInputText.onblur = () => {
     todo.title = newInputText.value;
     todoTitle.textContent = todo.title;
     newInputText.remove();
-    localStorage.setItem("packageManager", JSON.stringify(pm));
+    saveWork(pm);
   };
-  newInputText.addEventListener("keyup", ({ key }) => {
+
+  newInputText.onkeyup = ({ key }) => {
     if (key === "Enter") {
       newInputText.blur();
     }
-  });
+  };
+
+  newInputDate.onkeyup = ({ key }) => {
+    if (key === "Enter") newInputDate.blur();
+  };
 
   todoDiv.ondragstart = (event) => {
     const obj = { todoObj: todo, projectObj: project };
@@ -84,25 +94,18 @@ const drawTodo = (todo, displayPanel, project, pm) => {
   todoDiv.ondragend = (event) => {
     event.preventDefault();
     drawExistingTodos(pm, project, displayPanel);
-    
   };
-  todoDueDateH4.addEventListener("click", () => {
-    todoDueDateH4.appendChild(newInputDate);
-    newInputDate.focus();
-  });
   newInputDate.onblur = () => {
     if (newInputDate.value !== "") {
-      let date=format(new Date(`${newInputDate.value}T00:00`),'MM/dd/yyyy');
+      let date = format(new Date(`${newInputDate.value}T00:00`), "MM/dd/yyyy");
       todo.dueDate = date;
       todoDueDateH4.valueAsDate = date;
       todoDueDateH4.textContent = todo.dueDate;
-      localStorage.setItem("packageManager", JSON.stringify(pm));
+      saveWork(pm);
+      drawExistingTodos(pm, project, displayPanel);
     }
     newInputDate.remove();
   };
-  newInputDate.addEventListener("keyup", ({ key }) => {
-    if (key === "Enter") newInputDate.blur();
-  });
   return todoDiv;
 };
 export default drawTodo;

@@ -11,18 +11,17 @@ const drawProjectManager = (pm, displayPanel) => {
   projectPanelTitle.innerHTML="<h2 id = panel-title>Todo-App</h2> <p id ='projman-label'>Projects</p>"
   let projectManagerDiv = document.createElement("div");
   projectManagerDiv.classList.add("project-manager");
-  let createFormNewProject = document.createElement("button");
-  createFormNewProject.classList.add("new-project-button");
-  createFormNewProject.textContent = "+ Add Project";
-  // document.body.appendChild(projectManagerDiv);
+  let newProjectButton = document.createElement("button");
+  newProjectButton.classList.add("new-project-button");
+  newProjectButton.textContent = "+ Add Project";
   let mainPanel = document.querySelector(".main-panel");
   const parentNode = document.body;
   sidePanel.appendChild(projectPanelTitle);
   sidePanel.appendChild(projectManagerDiv);
-  sidePanel.appendChild(createFormNewProject);
+  sidePanel.appendChild(newProjectButton);
   parentNode.insertBefore(sidePanel, mainPanel);
-  createFormNewProject.addEventListener("click", () => {
-    createNewProjectForm(projectManagerDiv, pm, displayPanel); ///DEPEND
+  newProjectButton.addEventListener("click", () => {
+    createNewProjectForm(projectManagerDiv, pm, displayPanel); 
   });
 
   return projectManagerDiv;
@@ -35,7 +34,6 @@ const drawProjectDisplayPanel = () => {
   navBar.id='nav-bar';
   let expandArrow=document.createElement('div');
   expandArrow.id='expand-arrow';
-  // expandArrow.textContent='<';
   let displayPanelDiv = document.createElement("div");
   displayPanelDiv.classList.add("project-display-panel");
   let projectTitle = document.createElement('p');

@@ -3,6 +3,7 @@ import drawExistingTodos from "./drawExistingTodos";
 import removeElement from "./removeElement";
 import Todo from "./Todo";
 import drawAllTodos from "./drawAllTodos";
+import saveWork from "./Storage";
 
 const drawProjectsToList = (
   pm,
@@ -35,9 +36,9 @@ const drawProjectsToList = (
     editButton.appendChild(editIcon);
     projectDiv.classList.add("project");
     projectDiv.id = "project-" + id;
-    let projectTitleH1 = document.createElement("p");
-    projectTitleH1.classList.add("project-name");
-    projectTitleH1.textContent = project.title;
+    let projectTitle = document.createElement("p");
+    projectTitle.classList.add("project-name");
+    projectTitle.textContent = project.title;
     let newNameInput = document.createElement("input");
     newNameInput.id = "new-name-input";
     newNameInput.value = project.title;
@@ -45,7 +46,7 @@ const drawProjectsToList = (
     removeButton.classList.add('project-remove-button');
     removeButton.textContent='X';
   
-    projectDiv.appendChild(projectTitleH1);
+    projectDiv.appendChild(projectTitle);
     let buttonPanel = document.createElement('div');
     buttonPanel.classList.add('button-panel');
     buttonPanel.appendChild(editButton);
@@ -58,32 +59,33 @@ const drawProjectsToList = (
     
     
       projectDiv.addEventListener('drop',(event)=>moveTodo(event,project,pm));
-      removeButton.addEventListener("click", () => {
+
+      removeButton.onclick = () => {
      removeElement(pm, project.id);
-     localStorage.setItem("packageManager", JSON.stringify(pm));
+     saveWork(pm);
   
      projectDiv.remove();
-   });
+   };
   
-   editButton.addEventListener("click", () => {
-     projectTitleH1.remove();
+   editButton.onclick= () => {
+     projectTitle.remove();
      projectDiv.appendChild(newNameInput);
      newNameInput.focus();
-   });
+   };
   
    newNameInput.onblur = () => {
-     projectTitleH1.textContent = newNameInput.value;
+     projectTitle.textContent = newNameInput.value;
      project.title = newNameInput.value;
      newNameInput.remove();
-     projectDiv.insertBefore(projectTitleH1, buttonPanel);
-     localStorage.setItem("packageManager", JSON.stringify(pm));
+     projectDiv.insertBefore(projectTitle, buttonPanel);
+     saveWork(pm);
    };
-   newNameInput.addEventListener("keyup", ({ key }) => {
+   newNameInput.onkeyup= ({ key }) => {
      if (key === "Enter") newNameInput.blur();
-   });
+   };
   
-   projectDiv.addEventListener("click", function (event) {
-    if(event.target===this||event.target===projectTitleH1){
+   projectDiv.addEventListener('click',function (event){
+    if(event.target===this||event.target===projectTitle){
 
       if(displayPanel.parentElement.classList.contains('close-panel')){
         displayPanel.parentElement.classList.remove('close-panel');
@@ -109,12 +111,12 @@ else
   let projectDiv = document.createElement("div");
   projectDiv.classList.add("project");
   projectDiv.id = 'all-projects-container';
-  let projectTitleH1 = document.createElement("p");
-  projectTitleH1.classList.add("project-name");
-  projectTitleH1.textContent = project.title;
-  projectDiv.appendChild(projectTitleH1);
+  let projectTitle = document.createElement("p");
+  projectTitle.classList.add("project-name");
+  projectTitle.textContent = project.title;
+  projectDiv.appendChild(projectTitle);
   projManDiv.appendChild(projectDiv);
-  projectDiv.addEventListener("click", function () {
+  projectDiv.onclick=()=> {
     if(displayPanel.parentElement.classList.contains('close-panel')){
       displayPanel.parentElement.classList.remove('close-panel');
       sidePanel.classList.remove('display-closed');
@@ -125,7 +127,7 @@ else
     navTitle.textContent=project.title;
     drawAllTodos(pm,displayPanel);
     let newFormButton = createNewTodoButton(pm, project, displayPanel);
-  });
+  };
   
 };
 
@@ -150,7 +152,7 @@ const moveTodo=(event,project,pm)=>{
        removeElement(projRef, todo.id);
      }
    }
-   localStorage.setItem("packageManager", JSON.stringify(pm));
+   saveWork(pm);
 
 }
 }

@@ -1,14 +1,15 @@
 import drawProjectsToList from "./drawProjectsToList";
+import saveWork from "./Storage";
 const loadProjects = (
-  projectManagerObject,
+  pm,
   projectManagerDiv,
   displayPanel
 ) => {
   projectManagerDiv.innerHTML = "";
-  const projArray = projectManagerObject.projects;
+  const projArray = pm.projects;
   projArray.forEach((project) => {
     const tempDiv = drawProjectsToList(
-      projectManagerObject,
+      pm,
       project,
       project.title,
       project.id,
@@ -16,7 +17,7 @@ const loadProjects = (
       displayPanel
     );
     project.div = tempDiv;
-    localStorage.setItem('packageManager',JSON.stringify(projectManagerObject));
+    saveWork(pm);
   });
 };
 export default loadProjects;

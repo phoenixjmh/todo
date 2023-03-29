@@ -1,9 +1,9 @@
 export default class Project {
   todos = [];
-  constructor(title, id, div) {
+  constructor(title, id) {
     this._title = title;
     this._id = id;
-    this._div = div;
+   
   }
   get title() {
     return this._title;
@@ -14,13 +14,7 @@ export default class Project {
   get id() {
     return this._id;
   }
-  get div() {
-    return this._div;
-  }
-  set div(div) {
-    this._div = div;
-  }
-  
+ 
   addTodo(todo) {
     this.todos.push(todo);
   }

@@ -1,6 +1,7 @@
 import drawExistingTodos from "./drawExistingTodos";
 import {format} from "date-fns";
 import Todo from "./Todo";
+import saveWork from "./Storage";
 const createNewTodoForm = (pm,project, displayPanel) => {
   let totalTodos = ()=> {
     let sum=0;
@@ -19,18 +20,7 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   let titleInput = document.createElement("input");
   titleInput.setAttribute("type", "text");
   titleInput.id = "form-Todo-title";
-  let dueDateLabel = document.createElement("label");
-  dueDateLabel.setAttribute("for", "form-todo-dueDate");
-  dueDateLabel.textContent = "Due Date";
-  let dueDateInput = document.createElement("input");
-  dueDateInput.setAttribute("type", "date");
-  dueDateInput.id = "form-todo-dueDate";
-  let priorityLabel = document.createElement("label");
-  priorityLabel.setAttribute("for", "form-todo-priority");
-  priorityLabel.textContent = "Priority";
-  let priorityInput = document.createElement("input");
-  priorityInput.setAttribute("type", "text");
-  priorityInput.id = "form-todo-priority";
+ 
   let createButton = document.createElement("button");
   createButton.textContent = "+Add";
   createButton.classList.add("form-create-td");
@@ -47,8 +37,7 @@ const createNewTodoForm = (pm,project, displayPanel) => {
 
   newTodoForm.appendChild(titleLabel);
   newTodoForm.appendChild(titleInput);
-  // newTodoForm.appendChild(dueDateLabel);
-  // newTodoForm.appendChild(dueDateInput);
+  
   newTodoFormDiv.appendChild(newTodoForm);
   newTodoFormDiv.appendChild(buttonPanel);
   document.body.appendChild(newTodoFormDiv);
@@ -72,26 +61,18 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   });
 
   const addToDOM=()=>{
-    let date;
-    if(dueDateInput.value!=='')
-    date=format(new Date(`${dueDateInput.value}T00:00`),'MM/dd/yyyy');
+    let date='Set Date';
+  
     
-    else
-    date='Set Date';
 
     if(titleInput.value!==''){
 
-      let tempTodoName = new Todo(
-        titleInput.value,
-        " ",
-        date,
-        priorityInput.value,
-        totalTodos());
+      let tempTodoName = new Todo(titleInput.value,date,totalTodos());
     
     project.addTodo(tempTodoName);
     newTodoFormDiv.remove();
     drawExistingTodos(pm,project, displayPanel);
-    localStorage.setItem("packageManager", JSON.stringify(pm));
+    saveWork(pm);
       }
   }
 };

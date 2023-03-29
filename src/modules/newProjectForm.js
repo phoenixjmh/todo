@@ -1,15 +1,17 @@
+/* eslint-disable no-use-before-define */
 import loadProjects from "./loadProjects";
 import Project from "./Project";
 import saveWork from "./Storage";
+
 const createNewProjectForm = (projManDiv, pm, displayPanel) => {
-  let nameInput = document.createElement("input");
+  const nameInput = document.createElement("input");
   nameInput.setAttribute("type", "text");
   nameInput.id = "form-project-name";
-  let createButton = document.createElement("button");
+  const createButton = document.createElement("button");
   createButton.textContent = "+ Add";
   createButton.id = "create-button";
 
-  let falseProject = document.createElement("div");
+  const falseProject = document.createElement("div");
   falseProject.id = "input-placeholder";
 
   falseProject.classList.add("project");
@@ -35,7 +37,7 @@ const createNewProjectForm = (projManDiv, pm, displayPanel) => {
   };
 
   const addToDOM = () => {
-    let tempProjName = new Project(nameInput.value, pm.getAll().length);
+    const tempProjName = new Project(nameInput.value, pm.getAll().length);
     pm.addProj(tempProjName);
     loadProjects(pm, projManDiv, displayPanel);
     saveWork(pm);

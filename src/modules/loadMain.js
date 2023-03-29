@@ -1,47 +1,43 @@
 import createNewProjectForm from "./newProjectForm";
 
 const drawProjectManager = (pm, displayPanel) => {
- 
-  
-
-  let sidePanel = document.createElement("div");
+  const sidePanel = document.createElement("div");
   sidePanel.classList.add("side-panel");
-  let projectPanelTitle = document.createElement('div');
-  projectPanelTitle.classList.add('projman-header');
-  projectPanelTitle.innerHTML="<h2 id = panel-title>Todo-App</h2> <p id ='projman-label'>Projects</p>"
-  let projectManagerDiv = document.createElement("div");
+  const projectPanelTitle = document.createElement("div");
+  projectPanelTitle.classList.add("projman-header");
+  projectPanelTitle.innerHTML =
+    "<h2 id = panel-title>Todo-App</h2> <p id ='projman-label'>Projects</p>";
+  const projectManagerDiv = document.createElement("div");
   projectManagerDiv.classList.add("project-manager");
-  let createFormNewProject = document.createElement("button");
-  createFormNewProject.classList.add("new-project-button");
-  createFormNewProject.textContent = "+ Add Project";
-  // document.body.appendChild(projectManagerDiv);
-  let mainPanel = document.querySelector(".main-panel");
+  const newProjectButton = document.createElement("button");
+  newProjectButton.classList.add("new-project-button");
+  newProjectButton.textContent = "+ Add Project";
+  const mainPanel = document.querySelector(".main-panel");
   const parentNode = document.body;
   sidePanel.appendChild(projectPanelTitle);
   sidePanel.appendChild(projectManagerDiv);
-  sidePanel.appendChild(createFormNewProject);
+  sidePanel.appendChild(newProjectButton);
   parentNode.insertBefore(sidePanel, mainPanel);
-  createFormNewProject.addEventListener("click", () => {
-    createNewProjectForm(projectManagerDiv, pm, displayPanel); ///DEPEND
+  newProjectButton.addEventListener("click", () => {
+    createNewProjectForm(projectManagerDiv, pm, displayPanel);
   });
 
   return projectManagerDiv;
 };
 
 const drawProjectDisplayPanel = () => {
-  let mainPanel = document.createElement("div");
+  const mainPanel = document.createElement("div");
   mainPanel.classList.add("main-panel");
-  let navBar=document.createElement('div');
-  navBar.id='nav-bar';
-  let expandArrow=document.createElement('div');
-  expandArrow.id='expand-arrow';
-  // expandArrow.textContent='<';
-  let displayPanelDiv = document.createElement("div");
+  const navBar = document.createElement("div");
+  navBar.id = "nav-bar";
+  const expandArrow = document.createElement("div");
+  expandArrow.id = "expand-arrow";
+  const displayPanelDiv = document.createElement("div");
   displayPanelDiv.classList.add("project-display-panel");
-  let projectTitle = document.createElement('p');
-  projectTitle.textContent='Project Title';
-  projectTitle.id='nav-title';
- 
+  const projectTitle = document.createElement("p");
+  projectTitle.textContent = "Project Title";
+  projectTitle.id = "nav-title";
+
   navBar.appendChild(expandArrow);
   navBar.appendChild(projectTitle);
   mainPanel.appendChild(navBar);

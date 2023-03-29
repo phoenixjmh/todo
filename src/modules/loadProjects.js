@@ -1,22 +1,19 @@
+/* eslint-disable no-param-reassign */
 import drawProjectsToList from "./drawProjectsToList";
-const loadProjects = (
-  projectManagerObject,
-  projectManagerDiv,
-  displayPanel
-) => {
+import saveWork from "./Storage";
+
+const loadProjects = (pm, projectManagerDiv, displayPanel) => {
   projectManagerDiv.innerHTML = "";
-  const projArray = projectManagerObject.projects;
+  const projArray = pm.projects;
   projArray.forEach((project) => {
     const tempDiv = drawProjectsToList(
-      projectManagerObject,
+      pm,
       project,
-      project.title,
-      project.id,
       projectManagerDiv,
       displayPanel
     );
     project.div = tempDiv;
-    localStorage.setItem('packageManager',JSON.stringify(projectManagerObject));
+    saveWork(pm);
   });
 };
 export default loadProjects;

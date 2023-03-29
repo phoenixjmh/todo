@@ -1,41 +1,31 @@
-
-
+/* eslint-disable no-underscore-dangle */
 export default class Todo {
-  constructor(Title, Description, dueDate, priority, id) {
+  constructor(Title, dueDate, id) {
     this._title = Title;
-    this._description = Description;
     this._dueDate = dueDate;
-    this._priority = priority;
     this.id = id;
   }
+
   get title() {
     return this._title;
   }
-  get description() {
-    return this._description;
+
+  set title(title) {
+    this._title = title;
   }
+
   get dueDate() {
     return this._dueDate;
   }
-  get priority() {
-    return this._priority;
-  }
-  get id() {
-    return this._id;
-  }
-  set title(title) {
-    
-    this._title = title;
-  }
-  set description(description) {
-    this._description = description;
-  }
+
   set dueDate(dueDate) {
     this._dueDate = dueDate;
   }
-  set priority(priority) {
-    this._priority = priority;
+
+  get id() {
+    return this._id;
   }
+
   set id(id) {
     this._id = id;
   }

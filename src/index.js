@@ -8,6 +8,7 @@ import {
 import drawProjectsOnLoad from "./modules/loadProjects";
 import "./main.scss";
 import loadProjects from "./modules/loadProjects";
+import saveWork from "./modules/Storage";
 let savedProjects;
 let pm = new ProjectManager();
 if(localStorage.getItem("packageManager")!=null){
@@ -18,7 +19,8 @@ if(localStorage.getItem("packageManager")!=null){
         pm.addProj(proj);
         let todos=item.todos;
         todos.forEach((todo)=>{
-            let tempTodo=new Todo(todo._title,todo._description,todo._dueDate,'',todo._id);
+            console.log(todo);
+            let tempTodo=new Todo(todo._title,todo._dueDate,todo._id);
             proj.addTodo(tempTodo);
         })
         
@@ -29,10 +31,7 @@ if(localStorage.getItem("packageManager")!=null){
     pm.addProj(defaultProject);
     }
 }
-else{
-    let proj=new Project('Project',0);
-    pm.addProj(proj);
-}
+
 
 
 
@@ -44,7 +43,7 @@ const projectManagerDiv = drawProjectManager(pm, displayPanel);
 
 
 loadProjects(pm, projectManagerDiv, displayPanel);
-localStorage.setItem("packageManager",JSON.stringify(pm));
+saveWork(pm);
 
 
 

@@ -1,6 +1,4 @@
-
-
-const storeObject=(object)=>{
-    localStorage.setItem(`${object}`,JSON.stringify(object));
-}
-export default storeObject;
+const saveWork = (pm) => {
+  localStorage.setItem("packageManager", JSON.stringify(pm));
+};
+export default saveWork;

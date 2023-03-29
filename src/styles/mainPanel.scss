@@ -58,6 +58,9 @@
     mask-image:url('./img/projects.svg');
     mask-repeat: no-repeat;
     mask-size:6rem;
+    -webkit-mask-image:url('./img/projects.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size:6rem;
     width:3rem;
     height:1.8rem;
 }

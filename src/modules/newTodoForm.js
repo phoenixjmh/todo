@@ -40,10 +40,7 @@ const createNewTodoForm = (pm, project, displayPanel) => {
   document.body.appendChild(newTodoFormDiv);
 
   titleInput.focus();
-  titleInput.onblur = () => {
-    if (titleInput.value !== "") addToDOM();
-    else newTodoFormDiv.remove();
-  };
+
   cancelButton.onclick = () => {
     newTodoFormDiv.remove();
   };

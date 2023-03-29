@@ -68,9 +68,12 @@ const drawTodo = (todo, displayPanel, project, pm) => {
     newInputText.focus();
   };
 
-  todoDueDateH4.onclick = () => {
-    todoDueDateH4.appendChild(newInputDate);
-    newInputDate.focus();
+  todoDueDateH4.onclick = function (event) {
+    console.log(event.target);
+    if (event.target === this) {
+      todoDueDateH4.appendChild(newInputDate);
+      newInputDate.focus();
+    }
   };
 
   newInputText.onblur = () => {

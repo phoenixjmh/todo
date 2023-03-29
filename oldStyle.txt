@@ -102,7 +102,7 @@
     width:10rem;
     font-family:'Roboto',sans-serif;
     font-size:1rem;
-    border:2px solid $theme-font;
+    border:$border;
     border-radius:.5rem;
     color:$theme-font;
     background: white;

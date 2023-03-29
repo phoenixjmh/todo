@@ -7,7 +7,8 @@ const drawProjectManager = (pm, displayPanel) => {
   let sidePanel = document.createElement("div");
   sidePanel.classList.add("side-panel");
   let projectPanelTitle = document.createElement('div');
-  projectPanelTitle.innerHTML="<h2 id = panel-title>Projects</h2>"
+  projectPanelTitle.classList.add('projman-header');
+  projectPanelTitle.innerHTML="<h2 id = panel-title>Todo-App</h2> <p id ='projman-label'>Projects</p>"
   let projectManagerDiv = document.createElement("div");
   projectManagerDiv.classList.add("project-manager");
   let createFormNewProject = document.createElement("button");

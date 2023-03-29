@@ -12,9 +12,10 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   let newTodoFormDiv = document.createElement("div");
   newTodoFormDiv.classList.add("create-todo-form");
   let newTodoForm = document.createElement("form");
+  newTodoForm.id='todo-form';
   let titleLabel = document.createElement("label");
   titleLabel.setAttribute("for", "form-todo-title");
-  titleLabel.textContent = "Title";
+  titleLabel.textContent = "todo:";
   let titleInput = document.createElement("input");
   titleInput.setAttribute("type", "text");
   titleInput.id = "form-Todo-title";
@@ -31,14 +32,25 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   priorityInput.setAttribute("type", "text");
   priorityInput.id = "form-todo-priority";
   let createButton = document.createElement("button");
-  createButton.textContent = "Create";
-  createButton.classList.add("form-button-todo");
+  createButton.textContent = "+Add";
+  createButton.classList.add("form-create-td");
+
+  let cancelButton = document.createElement("button");
+  cancelButton.textContent = "Cancel";
+  cancelButton.classList.add("form-remove-td");
+
+  let buttonPanel=document.createElement('div')
+  buttonPanel.id='form-buttons-td';
+
+  buttonPanel.appendChild(createButton);
+  buttonPanel.appendChild(cancelButton);
+
   newTodoForm.appendChild(titleLabel);
   newTodoForm.appendChild(titleInput);
   // newTodoForm.appendChild(dueDateLabel);
   // newTodoForm.appendChild(dueDateInput);
   newTodoFormDiv.appendChild(newTodoForm);
-  newTodoFormDiv.appendChild(createButton);
+  newTodoFormDiv.appendChild(buttonPanel);
   document.body.appendChild(newTodoFormDiv);
   
   titleInput.focus();

@@ -68,6 +68,7 @@ const drawProjectsToList = (
    editButton.addEventListener("click", () => {
      projectTitleH1.remove();
      projectDiv.appendChild(newNameInput);
+     newNameInput.focus();
    });
   
    newNameInput.onblur = () => {
@@ -81,19 +82,22 @@ const drawProjectsToList = (
      if (key === "Enter") newNameInput.blur();
    });
   
-   projectTitleH1.addEventListener("click", function () {
-    if(displayPanel.parentElement.classList.contains('close-panel')){
-      displayPanel.parentElement.classList.remove('close-panel');
-      sidePanel.classList.remove('display-closed');
+   projectDiv.addEventListener("click", function (event) {
+    if(event.target===this||event.target===projectTitleH1){
+
+      if(displayPanel.parentElement.classList.contains('close-panel')){
+        displayPanel.parentElement.classList.remove('close-panel');
+        sidePanel.classList.remove('display-closed');
+      }
+      displayPanel.parentElement.classList.add('expand-panel');
+      sidePanel.classList.add('display-open');
+       displayPanel.innerHTML = "";
+       1;
+       
+       navTitle.textContent=project.title;
+       drawExistingTodos(pm, project, displayPanel);
+       let newFormButton = createNewTodoButton(pm, project, displayPanel);
     }
-    displayPanel.parentElement.classList.add('expand-panel');
-    sidePanel.classList.add('display-open');
-     displayPanel.innerHTML = "";
-     1;
-     
-     navTitle.textContent=project.title;
-     drawExistingTodos(pm, project, displayPanel);
-     let newFormButton = createNewTodoButton(pm, project, displayPanel);
    });
    projectDiv.addEventListener("dragover", (event) => {
      event.preventDefault();
@@ -110,7 +114,7 @@ else
   projectTitleH1.textContent = project.title;
   projectDiv.appendChild(projectTitleH1);
   projManDiv.appendChild(projectDiv);
-  projectTitleH1.addEventListener("click", function () {
+  projectDiv.addEventListener("click", function () {
     if(displayPanel.parentElement.classList.contains('close-panel')){
       displayPanel.parentElement.classList.remove('close-panel');
       sidePanel.classList.remove('display-closed');

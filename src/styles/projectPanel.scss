@@ -52,20 +52,32 @@
 }
 #panel-title{
     padding:2rem;
+    text-align: center;
     color:$theme-font;
     font-size:3rem;
     text-shadow: 1px 3px 5px rgba(0,0,0,0.6);
 }
+.projman-header{
+    width:80%;
+}
+#projman-label{
+    font-size:1.5rem;
+    position:relative;
+    top:1rem;
+    color:$theme-font;
+    text-shadow: 1px 3px 5px rgba(0,0,0,0.6);
+
+}
 .display-open{
     animation-name:openDisplay;
     animation-delay:0ms;
-    animation-duration:500ms;
+    animation-duration:300ms;
     animation-fill-mode: forwards;
 }
 .display-closed{
     animation-name:closeDisplay;
     animation-delay:0ms;
-    animation-duration:500ms;
+    animation-duration:300ms;
     animation-fill-mode: forwards;
 }
 
@@ -88,9 +100,9 @@
     display:flex;
     width:80%;
     color:$theme-font;
-     border:2px solid $theme-font;
+     border:$border;
      border-radius: .5rem;
-    // box-shadow:inset 1px 2px 6px 1px pink;
+    transition:ease-in-out 150ms;
     .project-name{
         left:1rem;
         position: relative;
@@ -107,10 +119,28 @@
     
    }
 }
+.project:hover{
+    width:90%;
+    height:3.5rem;
+    transition:ease-in-out 150ms;
+
+}
+#new-name-input{
+    font-family:'Open Sans',sans-serif;
+    font-size:1.4rem;
+    font-weight:700;
+    width:72%;
+    background:$bgColor;
+    color:$theme-font;
+    border-radius:.6rem;
+    border:none;
+    box-shadow:1px 2px 3px black;
+
+}
 .edit-project{
     appearance:none;
     background:none;
-    border:2px solid $theme-font;
+    border:$border;
     border-radius: .4rem;
    height:24px;
    width:24px;
@@ -149,7 +179,13 @@
    text-shadow: 1px 3px 5px rgba(0,0,0,0.6);
     box-shadow: 1px 2px 3px black;
    padding:.2rem;
+   transition:ease-in-out 150ms;
 
+}
+.new-project-button:hover{
+    height:2.5rem;
+    width:12rem;
+    transition:ease-in-out 150ms;
 }
 .project-remove-button{
     appearance:none;

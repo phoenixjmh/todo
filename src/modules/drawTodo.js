@@ -109,7 +109,6 @@ const drawTodo = (todo, displayPanel, project, pm) => {
       todoDueDateH4.valueAsDate = date;
       todoDueDateH4.textContent = todo.dueDate;
       saveWork(pm);
-      drawExistingTodos(pm, project, displayPanel);
     }
     newInputDate.remove();
   };

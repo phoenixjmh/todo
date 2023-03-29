@@ -113,7 +113,7 @@ const drawProjectsToList = (pm, project, projManDiv, displayPanel) => {
       sidePanel.classList.add("display-open");
       displayPanel.innerHTML = "";
       navTitle.textContent = project.title;
-      drawAllTodos(pm, displayPanel);
+      drawExistingTodos(pm, project, displayPanel);
       createNewTodoButton(pm, project, displayPanel);
     };
   }

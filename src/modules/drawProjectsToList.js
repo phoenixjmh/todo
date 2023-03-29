@@ -42,7 +42,7 @@ const drawProjectsToList = (
     newNameInput.id = "new-name-input";
     newNameInput.value = project.title;
     let removeButton=document.createElement('button');
-    removeButton.classList.add('.project-remove-button');
+    removeButton.classList.add('project-remove-button');
     removeButton.textContent='X';
   
     projectDiv.appendChild(projectTitleH1);

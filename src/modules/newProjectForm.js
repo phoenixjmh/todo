@@ -9,17 +9,17 @@ const createNewProjectForm = (projManDiv, pm, displayPanel) => {
   nameInput.setAttribute("type", "text");
   nameInput.id = "form-project-name";
   let createButton = document.createElement("button");
-  createButton.textContent = "Create";
+  createButton.textContent = "+ Add";
   createButton.id="create-button";
   
   //create a false project div to append to.
   
   let falseProject = document.createElement('div');
   falseProject.id='input-placeholder';
-  falseProject.innerHTML='<p class = "project-name" >new project</p>';
+  
   falseProject.classList.add('project');
-  falseProject.children[0].appendChild(nameInput);
-  falseProject.children[0].appendChild(createButton);
+  falseProject.appendChild(nameInput);
+  falseProject.appendChild(createButton);
   projManDiv.appendChild(falseProject);
  
   nameInput.focus();
@@ -35,13 +35,13 @@ const createNewProjectForm = (projManDiv, pm, displayPanel) => {
       if(nameInput.value!=='')
       addToDOM();
        else
-         newProjectFormDiv.remove();
+         falseProject.remove();
     });
     nameInput.onblur=()=>{
       if(nameInput.value!=='')
       addToDOM();
-       else
-         newProjectFormDiv.remove();
+      //  else
+        //  falseProject.remove();
     }
     
   

@@ -35,8 +35,8 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   createButton.classList.add("form-button-todo");
   newTodoForm.appendChild(titleLabel);
   newTodoForm.appendChild(titleInput);
-  newTodoForm.appendChild(dueDateLabel);
-  newTodoForm.appendChild(dueDateInput);
+  // newTodoForm.appendChild(dueDateLabel);
+  // newTodoForm.appendChild(dueDateInput);
   newTodoFormDiv.appendChild(newTodoForm);
   newTodoFormDiv.appendChild(createButton);
   document.body.appendChild(newTodoFormDiv);

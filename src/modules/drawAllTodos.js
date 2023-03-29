@@ -18,11 +18,8 @@ const drawAllTodos = (pm, displayPanel) => {
     const dateB = new Date(b.childNodes[2].innerHTML);
     return dateA - dateB;
   });
-console.log(allTodos);
   const parentContainer = displayPanel;
-  
   // eslint-disable-next-line no-plusplus
-  console.log(allTodos);
   for (let i = 0; i < allTodos.length; i++) {
     parentContainer.appendChild(allTodos[i]);
   }

@@ -38,7 +38,7 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   let cancelButton = document.createElement("button");
   cancelButton.textContent = "Cancel";
   cancelButton.classList.add("form-remove-td");
-
+  
   let buttonPanel=document.createElement('div')
   buttonPanel.id='form-buttons-td';
 
@@ -55,10 +55,13 @@ const createNewTodoForm = (pm,project, displayPanel) => {
   
   titleInput.focus();
   titleInput.onblur=()=>{
-  //   if(titleInput.value!=='')
-  //   addToDOM();
-  //   else
-  //   newTodoFormDiv.remove();
+    if(titleInput.value!=='')
+    addToDOM();
+    else
+    newTodoFormDiv.remove();
+  }
+  cancelButton.onclick = ()=>{
+    newTodoFormDiv.remove();
   }
   newTodoForm.addEventListener('submit',(event)=>{
     event.preventDefault();

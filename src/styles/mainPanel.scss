@@ -12,6 +12,7 @@
     width:0;
     left:100%;
     z-index:0;
+    overflow:hidden;
 
 }
 .expand-panel{
@@ -57,4 +58,9 @@
 }
 #nav-title{
     flex :5 5 auto;
+}
+@media(min-width:500px){
+    .main-panel{
+        border-radius: 2rem;
+    }
 }

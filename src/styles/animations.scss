@@ -8,6 +8,7 @@ $border:1px solid $theme-font;
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 @mixin animations{
+    
 
     @keyframes expand{
         from{
@@ -15,7 +16,7 @@ $border:1px solid $theme-font;
         left: 100%;
         }
         to{
-            width:100%;
+            width:100vw;
         left:0;}
     }
     @keyframes close {
@@ -37,8 +38,8 @@ $border:1px solid $theme-font;
         }
         to{
             position:relative;
-            width:0vw;
             right:100%;
+            width:0;
             visibility: hidden;
     
         }
@@ -46,7 +47,7 @@ $border:1px solid $theme-font;
     @keyframes closeDisplay{
         from{
             position:relative;
-            width:0vw;
+            width:0;
             right:100%;
         }
         to{
@@ -56,9 +57,61 @@ $border:1px solid $theme-font;
             height:100%;
             right:0;
             z-index: 2;
+            
         }
     }
-
-   
+    @media (min-width:500px){
+        @keyframes expand{
+            from{
+                width:0vw;
+            left: 100%;
+            }
+            to{
+                width:clamp(500px,70%,800px);
+            left:0;}
+        }
+        @keyframes close {
+            from{
+                width:clamp(500px,70%,800px);
+                
+            left:0;}
+            to{
+                width:0vw;
+                left:100%;
+        }
+        }
+        @keyframes openDisplay{
+            from{
+                position:relative;
+                width:clamp(500px,70%,800px);
+                height:100%;
+                right:0%;
+                z-index: 2;
+            }
+            to{
+                position:relative;
+                right:100%;
+                width:0;
+                visibility: hidden;
+        
+            }
+        }
+        @keyframes closeDisplay{
+            from{
+                position:relative;
+                width:0;
+                right:100%;
+            }
+            to{
+                
+                position:relative;
+                width:clamp(500px,70%,800px);
+                height:100%;
+                right:0;
+                z-index: 2;
+                
+            }
+        }
+    }   
 
 }

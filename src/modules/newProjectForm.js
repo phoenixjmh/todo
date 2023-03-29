@@ -40,8 +40,8 @@ const createNewProjectForm = (projManDiv, pm, displayPanel) => {
     nameInput.onblur=()=>{
       if(nameInput.value!=='')
       addToDOM();
-      //  else
-        //  falseProject.remove();
+       else
+         falseProject.remove();
     }
     
   
